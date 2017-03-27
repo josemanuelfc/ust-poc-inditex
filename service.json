@@ -1,5 +1,4 @@
 {
-	
 	"header" : {
 		"uid" : "uid",
 		"eventType" : "eventType",
@@ -11,5 +10,4 @@
 	"body" : {
 		"info" : "invocation"
 	}
-
 }
