@@ -31,7 +31,7 @@
           <con:mediaType>application/json</con:mediaType>
           <con:params/>
         </con:representation>
-        <con:request name="Request 1" id="d1f40fdb-e5bb-4a80-afe9-d763f7d521cd" mediaType="application/json" postQueryString="false">
+        <con:representation type="FAULT"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:ser="http://localhost/service">ser:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" id="d1f40fdb-e5bb-4a80-afe9-d763f7d521cd" mediaType="application/json" postQueryString="false">
           <con:settings>
             <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
   &lt;con:entry key="Content-Type" value="application/json"/>
@@ -82,13 +82,12 @@
           <con:restRequest name="Request 1" id="d1f40fdb-e5bb-4a80-afe9-d763f7d521cd" mediaType="application/json" postQueryString="false">
             <con:settings>
               <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Accept" value="application/json"/>
   &lt;con:entry key="Content-Type" value="application/json"/>
-  &lt;con:entry key="Accept" value="*/*"/>
 &lt;/xml-fragment></con:setting>
             </con:settings>
             <con:endpoint>http://localhost:8090</con:endpoint>
             <con:request>{
-	
 	"header" : {
 		"uid" : "uid",
 		"eventType" : "eventType",
@@ -100,7 +99,6 @@
 	"body" : {
 		"info" : "invocation"
 	}
-
 }</con:request>
             <con:originalUri>http://localhost/service</con:originalUri>
             <con:credentials>
@@ -108,9 +106,7 @@
             </con:credentials>
             <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
             <con:jmsPropertyConfig/>
-            <con:parameters>
-              <entry key="type" value="msgpack" xmlns="http://eviware.com/soapui/config"/>
-            </con:parameters>
+            <con:parameters><entry key="type" value="json" xmlns="http://eviware.com/soapui/config"/></con:parameters>
             <con:parameterOrder>
               <con:entry>type</con:entry>
             </con:parameterOrder>
@@ -125,11 +121,11 @@
         <con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed>
         <con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange>
         <con:historyLimit>-1</con:historyLimit>
-        <con:testLimit>100</con:testLimit>
+        <con:testLimit>200</con:testLimit>
         <con:limitType>COUNT</con:limitType>
         <con:loadStrategy>
           <con:type>Simple</con:type>
-        </con:loadStrategy>
+        <con:config><testDelay>1000</testDelay><randomFactor>0.5</randomFactor></con:config></con:loadStrategy>
         <con:assertion type="Step Status" name="Step Status"/>
         <con:maxAssertionErrors>100</con:maxAssertionErrors>
         <con:cancelExcessiveThreads>true</con:cancelExcessiveThreads>
