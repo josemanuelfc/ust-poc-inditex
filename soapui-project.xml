@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="4b914fe4-4dd2-49a2-8169-59c8567dfcef" activeEnvironment="Default" name="REST Project 1" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="53991469-c971-4ef5-a323-04b07cc403e3" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:8090" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache/>
+    <con:endpoints>
+      <con:endpoint>http://localhost:8090</con:endpoint>
+    </con:endpoints>
+    <con:resource name="Service" path="/service" id="9ed5e0e9-6da7-484e-8ee5-f48131cc6f3e">
+      <con:settings/>
+      <con:parameters>
+        <con:parameter>
+          <con:name>type</con:name>
+          <con:value/>
+          <con:style>QUERY</con:style>
+          <con:default/>
+          <con:description xsi:nil="true"/>
+        </con:parameter>
+      </con:parameters>
+      <con:method name="Service 1" id="bbcd2090-5afb-4cf4-959e-b1546bdc2148" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json;charset=UTF-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element xmlns:ser="http://localhost/service">ser:Response</con:element>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:request name="Request 1" id="d1f40fdb-e5bb-4a80-afe9-d763f7d521cd" mediaType="application/json" postQueryString="false">
+          <con:settings>
+            <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Content-Type" value="application/json"/>
+  &lt;con:entry key="Accept" value="*/*"/>
+&lt;/xml-fragment></con:setting>
+          </con:settings>
+          <con:endpoint>http://localhost:8090</con:endpoint>
+          <con:request>{
+	
+	"header" : {
+		"uid" : "uid",
+		"eventType" : "eventType",
+		"eventSubType" : "eventSubType",
+		"originService" : "originService",
+		"timestamp" : "26-03-2017 10:04:00",
+		"criticality" : "5"
+	},
+	"body" : {
+		"info" : "invocation"
+	}
+
+}</con:request>
+          <con:originalUri>http://localhost/service</con:originalUri>
+          <con:credentials>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+          <con:jmsPropertyConfig/>
+          <con:parameters>
+            <entry key="type" value="msgpack" xmlns="http://eviware.com/soapui/config"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>type</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="928f7608-dc78-432b-92c2-92e24673090e" name="TestSuite - json">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="d0e9c520-263b-4c5f-bb8d-59c6c95ae8b2" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Service TestCase" searchProperties="true">
+      <con:description>TestCase generated for REST Resource [Service] located at [/service]</con:description>
+      <con:settings/>
+      <con:testStep type="restrequest" name="Request 1" id="3c1b025a-7ef4-4af9-9361-3bbb7169e702">
+        <con:settings/>
+        <con:config service="http://localhost:8090" resourcePath="/service" methodName="Service 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="d1f40fdb-e5bb-4a80-afe9-d763f7d521cd" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  &lt;con:entry key="Content-Type" value="application/json"/>
+  &lt;con:entry key="Accept" value="*/*"/>
+&lt;/xml-fragment></con:setting>
+            </con:settings>
+            <con:endpoint>http://localhost:8090</con:endpoint>
+            <con:request>{
+	
+	"header" : {
+		"uid" : "uid",
+		"eventType" : "eventType",
+		"eventSubType" : "eventSubType",
+		"originService" : "originService",
+		"timestamp" : "26-03-2017 10:04:00",
+		"criticality" : "5"
+	},
+	"body" : {
+		"info" : "invocation"
+	}
+
+}</con:request>
+            <con:originalUri>http://localhost/service</con:originalUri>
+            <con:credentials>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:jmsPropertyConfig/>
+            <con:parameters>
+              <entry key="type" value="msgpack" xmlns="http://eviware.com/soapui/config"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>type</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:loadTest id="f5427a3a-2205-4405-ad36-8d509fb69da7" name="LoadTest 1">
+        <con:settings/>
+        <con:threadCount>5</con:threadCount>
+        <con:startDelay>0</con:startDelay>
+        <con:sampleInterval>250</con:sampleInterval>
+        <con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed>
+        <con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange>
+        <con:historyLimit>-1</con:historyLimit>
+        <con:testLimit>100</con:testLimit>
+        <con:limitType>COUNT</con:limitType>
+        <con:loadStrategy>
+          <con:type>Simple</con:type>
+        </con:loadStrategy>
+        <con:assertion type="Step Status" name="Step Status"/>
+        <con:maxAssertionErrors>100</con:maxAssertionErrors>
+        <con:cancelExcessiveThreads>true</con:cancelExcessiveThreads>
+        <con:strategyInterval>500</con:strategyInterval>
+      </con:loadTest>
+      <con:properties/>
+    </con:testCase>
+    <con:properties/>
+  </con:testSuite>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:oAuth2ProfileContainer/>
+  <con:oAuth1ProfileContainer/>
+</con:soapui-project>

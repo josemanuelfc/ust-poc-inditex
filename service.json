@@ -1,0 +1,15 @@
+{
+	
+	"header" : {
+		"uid" : "uid",
+		"eventType" : "eventType",
+		"eventSubType" : "eventSubType",
+		"originService" : "originService",
+		"timestamp" : "26-03-2017 10:04:00",
+		"criticality" : "5"
+	},
+	"body" : {
+		"info" : "invocation"
+	}
+
+}

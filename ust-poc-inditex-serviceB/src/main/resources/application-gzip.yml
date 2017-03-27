@@ -1,0 +1,6 @@
+server:
+  compression:
+    enabled: true
+    mime-types:
+    - application/xml
+    - application/json

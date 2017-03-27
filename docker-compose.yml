@@ -1,0 +1,64 @@
+version: '2.1'
+
+#####################################################################
+## Services
+
+services:
+
+  service-a:
+    build: ./ust-poc-inditex-serviceA/target/docker
+    image: ustglobal/inditex-service-a
+    environment:
+      - SERVER_PORT=8080
+      - SERVICE_BASEURL=http://ust-inditex-service-b:8080/
+      - SPRING_PROFILES_ACTIVE=http2,gzip
+#      - SPRING_PROFILES_ACTIVE=gzip,default
+      - JAVA_OPTS=-DLog4jContextSelector=org.apache.logging.log4j.core.async.A‌​syncLoggerContextSel‌​ector -server -Xms512M -Xmx2048M -Xmn256m -Xss2m -XX:MaxMetaspaceSize=64M -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+CMSParallelRemarkEnabled -XX:+CMSScavengeBeforeRemark -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70 -XX:NewRatio=4 -XX:NativeMemoryTracking=summary
+    ports:
+      - 8090:8080
+    depends_on:
+      - service-b
+    networks:
+      service:
+        aliases:
+          - ust-inditex-service-a
+
+  service-b:
+    build: ./ust-poc-inditex-serviceB/target/docker
+    image: ustglobal/inditex-service-b
+    environment:
+      - SERVER_PORT=8080
+      - SERVICE_BASEURL=http://ust-inditex-service-c:8080/
+      - SPRING_PROFILES_ACTIVE=http2,gzip
+#      - SPRING_PROFILES_ACTIVE=gzip,default
+      - JAVA_OPTS=-DLog4jContextSelector=org.apache.logging.log4j.core.async.A‌​syncLoggerContextSel‌​ector -server -Xms512M -Xmx2048M -Xmn256m -Xss2m -XX:MaxMetaspaceSize=64M -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+CMSParallelRemarkEnabled -XX:+CMSScavengeBeforeRemark -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70 -XX:NewRatio=4 -XX:NativeMemoryTracking=summary
+    ports:
+      - 8085:8080
+    depends_on:
+      - service-c
+    networks:
+      service:
+        aliases:
+          - ust-inditex-service-b
+
+  service-c:
+    build: ./ust-poc-inditex-serviceC/target/docker
+    image: ustglobal/inditex-service-c
+    environment:
+      - SERVER_PORT=8080
+      - SPRING_PROFILES_ACTIVE=http2,gzip
+#      - SPRING_PROFILES_ACTIVE=gzip,default
+      - JAVA_OPTS=-DLog4jContextSelector=org.apache.logging.log4j.core.async.A‌​syncLoggerContextSel‌​ector -server -Xms512M -Xmx2048M -Xmn256m -Xss2m -XX:MaxMetaspaceSize=64M -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:+CMSParallelRemarkEnabled -XX:+CMSScavengeBeforeRemark -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70 -XX:NewRatio=4 -XX:NativeMemoryTracking=summary
+    ports:
+      - 8080:8080
+    networks:
+      service:
+        aliases:
+          - ust-inditex-service-c
+
+#####################################################################
+## Networks
+
+networks:
+
+  service:
