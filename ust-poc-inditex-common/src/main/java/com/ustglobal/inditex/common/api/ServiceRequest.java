@@ -13,5 +13,9 @@ public class ServiceRequest extends InditexMessage<ServiceRequestPayload> {
     public String toString() {
         return super.toString();
     }
+    
+    public String say_hello(String user) {
+        return "Hello " + user;
+    }
 
 }
