@@ -11,6 +11,7 @@
 		</Async>
 	</Appenders>
 	<Loggers>
+		<!--Logger name="org.ustglobal.asiocop" level="INFO" /-->
 		<Logger name="org.springframework" level="WARN" />
 		<Logger name="com.ustglobal.inditex" level="DEBUG" />
 		<Root level="INFO">
