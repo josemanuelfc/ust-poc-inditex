@@ -8,6 +8,7 @@ public class Constants {
 
     public static final String MEDIATYPE_APPLICATION_JSON = "application/json";
     public static final String MEDIATYPE_APPLICATION_MSGPACK = "application/x-msgpack";
+    public static final String ASIOCOP_PACK = "application/json";
 
     public static String toMediaType(String type) {
         if ("json".equals(type))
