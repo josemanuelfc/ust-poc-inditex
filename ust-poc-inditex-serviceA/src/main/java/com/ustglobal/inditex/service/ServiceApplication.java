@@ -37,6 +37,14 @@ public class ServiceApplication {
 
     @Bean
     @LoadBalanced
+    @Profile("asiocop")
+    public RestTemplate rest(RestTemplateBuilder builder) {
+        builder.requestFactory(new AsiocopRequestFactory());
+        return builder.build();
+    }
+    
+    @Bean
+    @LoadBalanced
     @Profile("http2")
     public RestTemplate restHttp2(RestTemplateBuilder builder) {
         builder.requestFactory(new OkHttp3ClientHttpRequestFactory());
