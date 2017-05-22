@@ -13,5 +13,9 @@ public class ServiceResponse extends InditexMessage<ServiceResponsePayload> {
     public String toString() {
         return super.toString();
     }
+    
+    public String sayHello(String user) {
+        return "Response for the user " + user;
+    }
 
 }
