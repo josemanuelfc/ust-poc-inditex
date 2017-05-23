@@ -9,5 +9,8 @@
 	},
 	"body" : {
 		"info" : "invocation"
+	},
+	"asiocop" : {
+		"info" : "The universal DevOps dashboard to control everything in your proyect"
 	}
 }
