@@ -19,6 +19,8 @@ public class InditexHeader implements Serializable {
     private String eventSubType;
 
     private String originService;
+    
+    private String user;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private Date timestamp;
@@ -55,6 +57,14 @@ public class InditexHeader implements Serializable {
 
     public void setOriginService(String originService) {
         this.originService = originService;
+    }
+    
+    public String getUser() {
+        return user;
+    }
+    
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public Date getTimestamp() {
