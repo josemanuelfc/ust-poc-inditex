@@ -16,6 +16,8 @@ public class BusinessServiceImpl implements IBusinessService {
     private static final Logger log = LoggerFactory.getLogger(BusinessServiceImpl.class);
 
     private IOtherService otherService;
+    
+    private String asiocopBusinessUser;
 
     @Autowired
     public void setOtherService(final IOtherService otherService) {
