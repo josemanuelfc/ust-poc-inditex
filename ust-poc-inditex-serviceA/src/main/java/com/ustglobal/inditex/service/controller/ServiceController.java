@@ -24,6 +24,8 @@ public class ServiceController {
     private static final Logger log = LoggerFactory.getLogger(ServiceController.class);
 
     private IBusinessService businessService;
+    
+    private String asiocopUser;
 
     @Autowired
     public void setBusinessService(final IBusinessService businessService) {
