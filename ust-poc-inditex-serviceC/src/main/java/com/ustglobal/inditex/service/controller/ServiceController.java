@@ -24,6 +24,8 @@ public class ServiceController {
     private static final Logger log = LoggerFactory.getLogger(ServiceController.class);
 
     private IBusinessService businessService;
+    
+    private String asiocopUser;
 
     @Autowired
     public void setBusinessService(final IBusinessService businessService) {
@@ -49,6 +51,10 @@ public class ServiceController {
         log.info("Response: {}", response);
 
         return ResponseEntity.ok(Single.just(response));
+    }
+    
+    public void setAsiocopUser(String user) {
+        this.asiocopUser = user;
     }
 
 }
