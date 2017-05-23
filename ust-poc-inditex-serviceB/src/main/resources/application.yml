@@ -12,3 +12,10 @@ spring:
     name: ${project.artifactId}
   pid.file: ${project.artifactId}.pid
 service.url: ${SERVICE_BASEURL}/service
+asiocop:
+  application:
+    name: asioCOP, the king of the DevOps dashboard
+  roles:
+    - admin
+    - user
+    - techsupport
